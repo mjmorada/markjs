@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf dist",
-    "build": "npm run clean && tsc",
-    "start": "node dist/main.js",
-    "kill": "powershell -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force\"",
-    "start:dev": "npm run kill && nest start --watch",
-    "dev:fast": "npm run kill && ts-node-dev --respawn --transpile-only --ignore-watch dist src/main.ts"
-  },
-  "keywords": [],
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "clean": "rimraf dist",
+  "build": "npm run clean && tsc",
+  "start": "node dist/main.js",
+  "start:dev": "nest start --watch",
+  "dev:fast": "ts-node-dev --respawn --transpile-only --ignore-watch dist src/main.ts",
+  "kill": "node -e \"try{require('child_process').execSync('taskkill /IM node.exe /F',{stdio:'ignore'})}catch(e){}\""
+},
+
+
+  "keywords":[],
   "author": "",
   "license": "ISC",
   "dependencies": {
